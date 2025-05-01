@@ -15,6 +15,8 @@ const App = () => {
   const [count, setCount] = useState(0);
   //set state fro cart items to store added and removed items
   const [cartItems, setCartItem] = useState([]);
+  //set state for product page
+  const [info , setInfo] = useState([])
   // use effect for fetch data from api
   useEffect(() => {
     fetchData();
@@ -63,6 +65,8 @@ const App = () => {
                           setCount={setCount}
                           cartItems={cartItems}
                           setCartItem={setCartItem}
+                          info={info}
+                          setInfo = {setInfo}
                         />
                       </div>
                     );
@@ -73,7 +77,13 @@ const App = () => {
               </div>
             }
           />
-          <Route path="/product/:id" element={<Product />} />
+          <Route path="/product" element={<Product count={count}
+                          setCount={setCount}
+                          cartItems={cartItems}
+                          setCartItem={setCartItem}
+                          info={info}
+                          setInfo = {setInfo}/>} 
+                          />
           <Route
             path="/cartlists"
             element={
