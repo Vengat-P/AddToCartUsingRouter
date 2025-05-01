@@ -3,9 +3,8 @@ import ProductsHome from '../Page/ProductsHome';
 import CartLists from '../Page/CartLists';
 import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = ({count,setCount}) => {
 
-const [ value , setValue]= useState(0)
 
     return (
         <>
@@ -36,7 +35,7 @@ const [ value , setValue]= useState(0)
                   />{" "}
                 </svg>
                 <span className="badge badge-sm indicator-item bg-red-400 font-bold text-white border-0">
-                  {value}
+                  {count}
                 </span>
               </div>
                 </Link>
