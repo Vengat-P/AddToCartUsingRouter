@@ -16,7 +16,9 @@ const App = () => {
   //set state fro cart items to store added and removed items
   const [cartItems, setCartItem] = useState([]);
   //set state for product page
-  const [info , setInfo] = useState([])
+  const [info, setInfo] = useState([]);
+  //set state for total amount
+  const [total, setTotal] = useState([]);
   // use effect for fetch data from api
   useEffect(() => {
     fetchData();
@@ -31,6 +33,9 @@ const App = () => {
       console.log(error);
     }
   };
+  console.log(cartItems);
+  console.log(total);
+
   //callback function passing parameter from cartlist child component to filter and show remaining products
   const removeFunction = (cartItem) => {
     const removeId = cartItem.id;
@@ -39,8 +44,24 @@ const App = () => {
         return true;
       }
     });
+    const filteredTotal = total.filter((item) => {
+      if (item !== cartItem.price) {
+        return true;
+      }
+    });
+    setTotal(() => {
+      return [...filteredTotal];
+    });
     setCartItem(() => {
       return [...filteredProducts];
+    });
+  };
+  //callback function ro remove total element from quantity decrement
+  const removeTotal = (total) => {
+    console.log(total);
+    total.splice(total.length - 1, 1);
+    setTotal(() => {
+      return [...total];
     });
   };
 
@@ -66,7 +87,9 @@ const App = () => {
                           cartItems={cartItems}
                           setCartItem={setCartItem}
                           info={info}
-                          setInfo = {setInfo}
+                          setInfo={setInfo}
+                          total={total}
+                          setTotal={setTotal}
                         />
                       </div>
                     );
@@ -77,13 +100,19 @@ const App = () => {
               </div>
             }
           />
-          <Route path="/product" element={<Product count={count}
-                          setCount={setCount}
-                          cartItems={cartItems}
-                          setCartItem={setCartItem}
-                          info={info}
-                          setInfo = {setInfo}/>} 
-                          />
+          <Route
+            path="/product"
+            element={
+              <Product
+                count={count}
+                setCount={setCount}
+                cartItems={cartItems}
+                setCartItem={setCartItem}
+                info={info}
+                setInfo={setInfo}
+              />
+            }
+          />
           <Route
             path="/cartlists"
             element={
@@ -99,6 +128,9 @@ const App = () => {
                           cartItem={cartItem}
                           setCartItem={setCartItem}
                           removeFunction={removeFunction}
+                          removeTotal={removeTotal}
+                          total={total}
+                          setTotal={setTotal}
                         />
                       </div>
                     );
@@ -108,6 +140,29 @@ const App = () => {
                     <h1 className="font-bold text-lg"> Your Cart Is Empty </h1>
                   </div>
                 )}
+                <div className="felx justify-center gap-2 text-center mx-auto py-2 mt-4 ">
+                  <p className="text-2xl font-semibold uppercase flex justify-center gap-4 text-blue-600">
+                    Total Amount:
+                    <span className="text-2xl font-bold text-black">
+                      {total.reduce((sum, value) => {
+                        return sum + value;
+                      }, 0)}
+                    </span>
+                  </p>
+                </div>
+                <div className="felx justify-center gap-2 text-center mx-auto py-2 mt-4 ">
+                  <p className="text-2xl font-semibold uppercase flex justify-center gap-2 text-blue-600">
+                    <span className="text-xl text-black capitalize">10%discount</span>
+                    Final Payable Amount:
+                    <span className="text-2xl font-bold text-black">
+                      {(total.reduce((sum, value) => {
+                        return sum + value;
+                      }, 0))- (10/100)*(total.reduce((sum, value) => {
+                        return sum + value;
+                      }, 0))}
+                    </span>
+                  </p>
+                </div>
               </div>
             }
           />

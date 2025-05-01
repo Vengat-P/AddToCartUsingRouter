@@ -9,6 +9,8 @@ const ProductsHome = ({
   setCartItem,
   info,
   setInfo,
+  total,
+  setTotal,
 }) => {
   // set state for status
   const [status, setStatus] = useState(true);
@@ -23,11 +25,17 @@ const ProductsHome = ({
     if (existItem) {
       setCartItem(() => {
         return [...cartItems];
+      })
+      setTotal(()=>{
+        return [...total]
       });
     } else {
       setCount((ele) => ele + 1);
       setCartItem(() => {
         return [...cartItems, product];
+      });
+      setTotal(()=>{
+        return [...total,product.price]
       });
     }
   };
@@ -38,7 +46,14 @@ const ProductsHome = ({
         return true;
       }
     });
-
+    const filteredTotal = total.filter((item)=>{
+      if (item !== product.price) {
+        return true;
+      }
+    })
+    setTotal(()=>{
+      return[...filteredTotal]
+    })
     setCartItem(() => {
       return [...filteredProducts];
     });
