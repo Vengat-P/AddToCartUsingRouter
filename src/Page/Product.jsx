@@ -10,7 +10,7 @@ const Product = ({
   setCartItem
 }) => {
 //   console.log(info);
-  // set state for status
+  // set state for click
   const [click, setClick] = useState(true);
 
   //handle submit function to get added in cart details

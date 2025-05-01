@@ -12,6 +12,9 @@ const Navbar = ({count,setCount}) => {
           <div className="flex-1">
             <Link to={"/"} className=" text-xl text-white">E-Shop</Link>
           </div>
+          <div>
+          <Link to={"/"} className=" text-xl text-white">Home</Link>
+          </div>
           <div className="flex-none">
             {/* You can open the modal using document.getElementById('ID').showModal() method */}
             <button
