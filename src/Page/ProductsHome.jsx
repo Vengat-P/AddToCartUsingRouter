@@ -12,7 +12,7 @@ const ProductsHome = ({ count, setCount, product, cartItems, setCartItem }) => {
     // find the current product already in cartItems or not
     const existItem = cartItems.find((item) => item.id === product.id);
     if (existItem) {
-      alert("Item already added to the cart");
+      
     } else {
       setCount((ele) => ele + 1);
       setCartItem(() => {
