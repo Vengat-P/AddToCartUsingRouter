@@ -1,11 +1,14 @@
-import React from 'react';
+import React from "react";
 
 const PageNotFound = () => {
-    return (
-        <div>
-            <h1>PageNotFound</h1>
-        </div>
-    );
+  return (
+    <div>
+      <img
+        src="https://static-00.iconduck.com/assets.00/404-page-not-found-illustration-2048x998-yjzeuy4v.png"
+        alt="page not found"
+      />
+    </div>
+  );
 };
 
 export default PageNotFound;

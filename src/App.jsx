@@ -110,13 +110,15 @@ const App = () => {
                 setCartItem={setCartItem}
                 info={info}
                 setInfo={setInfo}
+                total={total}
+                setTotal={setTotal}
               />
             }
           />
           <Route
             path="/cartlists"
             element={
-              <div>
+              <div className="container mx-auto grid border-1 border-gray-500 mt-2">
                 {/* display the added cart list products */}
                 {cartItems.length > 0 ? (
                   cartItems.map((cartItem, index) => {
@@ -137,7 +139,11 @@ const App = () => {
                   })
                 ) : (
                   <div className="flex justify-center items-center">
-                    <h1 className="font-bold text-lg"> Your Cart Is Empty </h1>
+                    <img
+                      src="https://mir-s3-cdn-cf.behance.net/projects/404/95974e121862329.Y3JvcCw5MjIsNzIxLDAsMTM5.png"
+                      alt="cart empty"
+                      className="mt-2"
+                    />
                   </div>
                 )}
                 <div className="felx justify-center gap-2 text-center mx-auto py-2 mt-4 ">
@@ -150,16 +156,23 @@ const App = () => {
                     </span>
                   </p>
                 </div>
+                <div className="container w-auto flex justify-center items-center">
+                  <p className=" text-center text-xl w-fit font-bold text-black capitalize">
+                    You Have 10% discount of Total Amount
+                  </p>
+                </div>
+
                 <div className="felx justify-center gap-2 text-center mx-auto py-2 mt-4 ">
-                  <p className="text-2xl font-semibold uppercase flex justify-center gap-2 text-blue-600">
-                    <span className="text-xl text-black capitalize">10%discount</span>
+                  <p className=" sm:text-xs md:text-2xl font-semibold uppercase flex justify-center gap-2 text-blue-600">
                     Final Payable Amount:
-                    <span className="text-2xl font-bold text-black">
-                      {(total.reduce((sum, value) => {
+                    <span className="sm:text-xs md:text-2xl font-bold text-black">
+                      {total.reduce((sum, value) => {
                         return sum + value;
-                      }, 0))- (10/100)*(total.reduce((sum, value) => {
-                        return sum + value;
-                      }, 0))}
+                      }, 0) -
+                        (10 / 100) *
+                          total.reduce((sum, value) => {
+                            return sum + value;
+                          }, 0)}
                     </span>
                   </p>
                 </div>
