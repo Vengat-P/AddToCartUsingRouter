@@ -14,9 +14,6 @@ const CartLists = ({
 }) => {
   //   set state for quantity
   const [quantity, setQuantity] = useState(1);
-  //set state for total price per product
-  const [totalPrice, setTotalPrice] = useState([]);
-
   //remove button function
   const removeFromCart = (e) => {
     // console.log(cartItem);
@@ -34,10 +31,6 @@ const CartLists = ({
     //set total for add cartitem price in total array for every increment
     setTotal(() => {
       return [...total, cartItem.price];
-    });
-    //this totalprice state fro particular cart total price increment
-    setTotalPrice(() => {
-      return [...totalPrice, cartItem.price];
     });
   };
   //quantity decrement function for particular cart

@@ -33,8 +33,8 @@ const App = () => {
       console.log(error);
     }
   };
-  console.log(cartItems);
-  console.log(total);
+  // console.log(cartItems);
+  // console.log(total);
 
   //callback function passing parameter from cartlist child component to filter and show remaining products
   const removeFunction = (cartItem) => {
@@ -58,7 +58,7 @@ const App = () => {
   };
   //callback function ro remove total element from quantity decrement
   const removeTotal = (total) => {
-    console.log(total);
+    // console.log(total);
     total.splice(total.length - 1, 1);
     setTotal(() => {
       return [...total];
