@@ -66,7 +66,7 @@ const ProductsHome = ({
     setInfo(() => {
       return product;
     });
-    navigate("/product");
+    navigate(`/product/${product.id}`);
     // console.log(product);
   };
   return (
