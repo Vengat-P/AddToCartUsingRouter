@@ -17,6 +17,7 @@ Create a separate page for product and cart functionality, including the ability
 ## Logics
 
 - **Routing -**
+
 - **Step1** create BrowserRouter within side create one div (this will be first) for Navbar Component (Because SPA - I NEED ALL PAGE WILL ACCESS NAVBAR). Second create Routes inside of this all routes are there ("/"-Home page(ProductsHome) , "/product"-particular product details when you click more info, "/CartLists"-CartLists page (added cart items will show here), "*"-nomatch route (PagenotFound)). and last make one div for footer component to show all pages .
 
 - **In Navbar Component -** these component has 3 link tags one is shopify ,home and cart icon.
