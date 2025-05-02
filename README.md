@@ -11,12 +11,13 @@ Create a separate page for product and cart functionality, including the ability
 - **Axios** to Fetch API data
 - **Daisyui** to add Components for Tailwind Style
 - **VSCode** for development
-- **JavaScript** for applying logics -**React-Router-dom** for acessing routers
+- **JavaScript** for applying logics
+- **React-Router-dom** for acessing routers(pacakge)
 
 ## Logics
 
 - **Routing -**
-- **Step1** create BrowserRouter within side create one div (this will be first) for Navbar Component (Because SPA - I NEED ALL PAGE WILL ACCESS NAVBAR). Second create Routes inside of this all routes are there ("/"-Home page(ProductsHome) , "/product"-particular product details when you click more info, "/CartLists"-CartLists page (added cart items will show here), "\*"-nomatch route (PagenotFound)). and last make one div for footer component to show all pages .
+- **Step1** create BrowserRouter within side create one div (this will be first) for Navbar Component (Because SPA - I NEED ALL PAGE WILL ACCESS NAVBAR). Second create Routes inside of this all routes are there ("/"-Home page(ProductsHome) , "/product"-particular product details when you click more info, "/CartLists"-CartLists page (added cart items will show here), "*"-nomatch route (PagenotFound)). and last make one div for footer component to show all pages .
 
 - **In Navbar Component -** these component has 3 link tags one is shopify ,home and cart icon.
   by using link tage i connect to parameter as path. for shopify - product home page and home also same . for cartlogo will goto cartlist page
@@ -39,7 +40,7 @@ Create a separate page for product and cart functionality, including the ability
 - **Step9** now in cartlist we have increment and decrement of quantity function also. to store these details create one state name of quantity with initial value one(because when i add cart automatically one will show). now increment function will setQuntity value occording to my click. and inside of this functio i add settotal function also because when i increase quantity total state of array also increse by using spread Operator and passing product price which product i click increment button. now decrement function this will has condition if my
   quantity greater than 1 then only i can able to decrese value of quantity setQuantity function occording to that.and inside of this to set Total function for updating total array which i click remove for that we can make one function in app component name is removeTotal and passing that state to neccesary states. now in decrement function call that function and pass parameter total. now remove total function will has which product quantity decresed occording to that we need to remove last element form total array . For this using splice method and starting index will be total.length-1 because when we add incremented price in increment function passing price using spread operator so data will add last we need to remove that price only so we pass this total.length-1 to get last index and 1 elemnent need to remove after that setTotal using spread operator passing only remaing total
 
-- **Step10** to find total price of your cart list we added all the necessary function into Total state. now we can create two div in carlists Route one for display total amount and another one div for final amount after discounted 10 %. first div inside i use reduce method to sum all the prices of total array. this will give me total amount. now another div inside inside of curly braces i create two bracket first bracket minus second bracket . inside of first bracket i use reduce method to find the total price amount of total array. and second bracket inside (10/100)\*reduce method sum of total amount. (total amount - 10% of total amount) this is concept of discount value .
+- **Step10** to find total price of your cart list we added all the necessary function into Total state. now we can create two div in carlists Route one for display total amount and another one div for final amount after discounted 10 %. first div inside i use reduce method to sum all the prices of total array. this will give me total amount. now another div inside inside of curly braces i create two bracket first bracket minus second bracket . inside of first bracket i use reduce method to find the total price amount of total array. and second bracket inside (10/100)* reduce method sum of total amount. (total amount - 10% of total amount) this is concept of discount value .
 
 - **Step11** in cartLits particulat product total price is there. we need to update these total.we already have quantity state so we cane simply multiply cartitem.price and quantity to find total price of particular product
 
@@ -51,7 +52,7 @@ Create a separate page for product and cart functionality, including the ability
 
 - **step-3 -** If you want to remove any of product from your CartItem just click Remove From Cart button. you will see remaining cartItems.
 
-- **step-3 -** if you want to know more details about click more info of which product you select. that will go to that product page you can add and remove cart item from there also you can do. click back to home button will get you home page
+- **step-4 -** if you want to know more details about click more info of which product you select. that will go to that product page you can add and remove cart item from there also you can do. click back to home button will get you home page
 
 ## Features
 

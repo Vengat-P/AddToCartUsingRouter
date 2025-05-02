@@ -119,6 +119,7 @@ const App = () => {
             path="/cartlists"
             element={
               <div className="container mx-auto grid border-1 border-gray-500 mt-2">
+                <h1 className="text-center sm:text-xl md:text-3xl">You have in your cart <span className="text-red-600">{count}</span> Items</h1>
                 {/* display the added cart list products */}
                 {cartItems.length > 0 ? (
                   cartItems.map((cartItem, index) => {
@@ -148,7 +149,7 @@ const App = () => {
                 )}
                 <div className="felx justify-center gap-2 text-center mx-auto py-2 mt-4 ">
                   <p className="text-2xl font-semibold uppercase flex justify-center gap-4 text-blue-600">
-                    Total Amount:
+                    Total Amount of <span className="text-red-600 capitalize">({count} items)</span> :
                     <span className="text-2xl font-bold text-black">
                       {total.reduce((sum, value) => {
                         return sum + value;

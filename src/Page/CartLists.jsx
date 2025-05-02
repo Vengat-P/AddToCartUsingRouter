@@ -32,6 +32,8 @@ const CartLists = ({
     setTotal(() => {
       return [...total, cartItem.price];
     });
+    //set count for to count after increment of quantity
+    setCount((ele)=>ele+1)
   };
   //quantity decrement function for particular cart
   const decrement = (e) => {
@@ -39,6 +41,8 @@ const CartLists = ({
       setQuantity((ele) => ele - 1);
       //passing parameter in removeTotal function for removing element from total array
       removeTotal(total);
+       //set count for to count after increment of quantity
+    setCount((ele)=>ele-1)
     }
   };
 
@@ -55,8 +59,8 @@ const CartLists = ({
         </div>
         <div className="card-body w-auto h-full">
           {/* updating details from cartItem state */}
-          <h2 className="card-title w-fit font-bold text-2xl flex justify-center text-blue-600">
-            ProductName : <span className="text-black">{cartItem.title}</span>
+          <h2 className="card-title w-auto font-bold sm:text-xl md:text-2xl flex text-start text-blue-600">
+            ProductName: <span className="text-black text-center ">{cartItem.title}</span>
           </h2>
           <p className="text-2xl font-bold text-gray-500 mt-2 ">
             {" "}
@@ -81,7 +85,7 @@ const CartLists = ({
             </button>
           </div>
           <p className="text-2xl font-bold text-gray-500 mt-2 text-center">
-            <span>Total Amount :{cartItem.price * quantity}</span>
+            <span>Total Amount of this Item :{cartItem.price * quantity}</span>
           </p>
           <div className="card-actions justify-center mt-2">
             <button
