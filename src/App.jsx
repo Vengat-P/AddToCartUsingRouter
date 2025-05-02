@@ -149,7 +149,7 @@ const App = () => {
                 )}
                 <div className="felx justify-center gap-2 text-center mx-auto py-2 mt-4 ">
                   <p className="text-2xl font-semibold uppercase flex justify-center gap-4 text-blue-600">
-                    Total Amount of <span className="text-red-600 capitalize">({count} items)</span> :
+                    Total Amount of <span className="text-red-600 capitalize">({count} products)</span> :
                     <span className="text-2xl font-bold text-black">
                       {total.reduce((sum, value) => {
                         return sum + value;

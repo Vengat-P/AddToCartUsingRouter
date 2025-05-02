@@ -21,7 +21,6 @@ const CartLists = ({
     if (count > 0) {
       setCount((ele) => ele - 1);
     }
-
     //pass this cartItem as a parameter to parent component
     removeFunction(cartItem);
   };
@@ -32,8 +31,6 @@ const CartLists = ({
     setTotal(() => {
       return [...total, cartItem.price];
     });
-    //set count for to count after increment of quantity
-    setCount((ele)=>ele+1)
   };
   //quantity decrement function for particular cart
   const decrement = (e) => {
@@ -41,8 +38,7 @@ const CartLists = ({
       setQuantity((ele) => ele - 1);
       //passing parameter in removeTotal function for removing element from total array
       removeTotal(total);
-       //set count for to count after increment of quantity
-    setCount((ele)=>ele-1)
+
     }
   };
 
