@@ -2,10 +2,11 @@ import React from "react";
 
 const PageNotFound = () => {
   return (
-    <div>
+    <div className=" container w-full h-full mx-auto py-2 flex justify-center">
       <img
-        src="https://static-00.iconduck.com/assets.00/404-page-not-found-illustration-2048x998-yjzeuy4v.png"
+        src="/pagenotfound.png"
         alt="page not found"
+        className="w-3/4 h-3/4"
       />
     </div>
   );
