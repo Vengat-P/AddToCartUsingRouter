@@ -85,7 +85,7 @@ const ProductsHome = ({
           <h2 className="card-title w-full h-12">{product.title}</h2>
           <button className="w-fit text-blue-600" onClick={detailSubmit}>
             {/* more info link for product details */}
-            <Link to="/product">more info</Link>{" "}
+            <Link to={`/product/${product.id}`}>more info</Link>{" "}
           </button>
           <p className="text-xl font-bold text-gray-500">{product.price}$</p>
           <div className="flex">
