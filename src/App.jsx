@@ -129,7 +129,7 @@ const App = () => {
             path="/cartlists"
             element={
               <div className="container mx-auto grid border-1 border-gray-500 mt-2">
-                <h1 className="text-center sm:text-xl md:text-3xl">You have in your cart <span className="text-red-600">{count}</span> Items</h1>
+                <h1 className="text-center sm:text-xl md:text-3xl">You have in your cart <span className="text-red-600">{count}</span> products</h1>
                 {/* display the added cart list products */}
                 {cartItems.length > 0 ? (
                   cartItems.map((cartItem, index) => {
