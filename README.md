@@ -59,6 +59,7 @@ Create a separate page for product and cart functionality, including the ability
 
 - Responsive Design
 - Clean and Minimalistic Layout
+- Routing for separate pages in single page
 
 ## Demo
 
