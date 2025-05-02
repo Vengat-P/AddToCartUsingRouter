@@ -11,6 +11,8 @@ import CartLists from "./Page/CartLists";
 const App = () => {
   // set state for store data from api
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   //set state for count to counts added items
   const [count, setCount] = useState(0);
   //set state fro cart items to store added and removed items
@@ -29,10 +31,18 @@ const App = () => {
       const response = await axios.get("https://fakestoreapi.com/products");
       //storing the geting values in product state
       setProducts(response.data);
-    } catch (error) {
-      console.log(error);
+      setLoading(false);
+    } catch (err) {
+      console.log(err);
+      setError(err);
     }
   };
+  if (loading) {
+    return <div>....Loading</div>;
+  }
+  if (error) {
+    return <div>{error}</div>;
+  }
   // console.log(cartItems);
   // console.log(total);
 
